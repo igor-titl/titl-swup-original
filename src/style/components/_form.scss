@@ -1,0 +1,162 @@
+/* ------ INPUT BG FILL FIX ------ */
+
+.c-form__field-input:-webkit-autofill,
+input:-webkit-autofill,
+.c-form__field-input:-webkit-autofill:hover,
+input:-webkit-autofill:hover,
+.c-form__field-input:-webkit-autofill:focus,
+input:-webkit-autofill:focus {
+  caret-color: #245792;
+  -webkit-text-fill-color: #245792;
+  -webkit-box-shadow: 0 0 0px 1000px var(--input-bg-color) inset;
+}
+
+/* ------ >INPUT BG FILL FIX ------ */
+
+/* ------ FORM BUTTON ------ */
+
+.c-form__button-shedule-pulse::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #3fb63d;
+  opacity: 0.5;
+  z-index: -2;
+  animation: pulse 2s infinite;
+  border-radius: 100%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.c-form__button-submit {
+  color: inherit;
+}
+
+/* ------ >FORM BUTTON ------ */
+
+//////////////////////
+/////// FORM ////////
+////////////////////
+
+.c-form__field {
+  position: relative;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform-origin: left center;
+    transition: transform 800ms ease;
+  }
+  &::before {
+    background-color: #d3deea;
+  }
+}
+
+.c-form {
+  &__field {
+    &.active:not(.error) {
+      .c-form__enter {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+.c-form__field-input {
+  appearance: none;
+}
+
+.c-form__field-caret {
+  &::before {
+    content: "";
+    position: absolute;
+    margin: auto 0;
+    width: 1rem;
+    height: 70%;
+    right: -1rem;
+    top: 0;
+    bottom: 0;
+    background-color: #245792;
+    opacity: 0;
+
+    @media (max-width: 767px) {
+      right: -0.6rem;
+      width: 0.6rem;
+    }
+  }
+  .c-form__field-input:focus ~ &::before {
+    animation: pulseAttention 600ms steps(1) infinite;
+  }
+}
+
+.c-form__field-input:not([value=""]) ~ .c-form__field-label {
+  opacity: 0;
+}
+
+@keyframes pulseAttention {
+  50% {
+    opacity: 1;
+  }
+}
+
+.c-form__button-submit-inner.splitting .char:before {
+  background-color: currentColor;
+  bottom: -0.02em;
+  content: "";
+  height: 0.08em;
+  position: absolute;
+  width: 100%;
+}
+
+.c-form__wrapper {
+  display: block !important;
+}
+
+.c-form__field {
+  &.error {
+    color: #d93e3e;
+    .c-form__field-label {
+      color: #d93e3e;
+    }
+    .c-form__field-caret:before {
+      background-color: #d93e3e;
+    }
+    .c-form__enter {
+      color: #d93e3e;
+      border-color: #d93e3e;
+    }
+  }
+  &:before {
+    transition: background-color 400ms ease;
+  }
+  &.error:before {
+    background-color: #d93e3e;
+  }
+}
+
+/* ------ >FORM ERROR SPAN ------ */
+
+.c-form__error-span {
+  // position: absolute;
+
+  .c-form__field:not(.error) & {
+    display: none;
+  }
+}

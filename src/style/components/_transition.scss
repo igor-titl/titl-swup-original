@@ -1,0 +1,25 @@
+.o-scroll {
+  // transition-property: transform, opacity;
+  // transition-timing-function: ease;
+  // transition-duration: 400ms;
+  opacity: 0;
+  transform: translateY(4rem);
+
+  // .is-old & {
+  //   opacity: 0;
+  //   transform: translateY(-2rem);
+  // }
+  .is-loading & {
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1),
+      opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateY(-4rem);
+  }
+
+  .has-dom-ready & {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1),
+      opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+}

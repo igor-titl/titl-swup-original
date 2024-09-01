@@ -1,0 +1,94 @@
+body,
+html {
+  min-height: 100%;
+}
+
+body {
+  overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+
+[data-scroll-section] {
+  perspective: 1px;
+}
+
+:root {
+  --input-bg-color: #edf2f9;
+}
+
+/* ------ Base style ------ */
+
+.o-visibility-hidden {
+  visibility: hidden !important;
+}
+
+*,
+:after,
+:before {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+::-moz-selection {
+  background-color: #e9eef4;
+  color: #255792;
+  text-shadow: none;
+}
+
+::selection {
+  background-color: #e9eef4;
+  color: #255792;
+  text-shadow: none;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+}
+
+[no-click] {
+  pointer-events: none;
+}
+
+[click] {
+  pointer-events: all;
+}
+
+.o-visually-hidden {
+  position: absolute;
+  margin: -1px;
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.o-link::before {
+  content: "";
+  position: absolute;
+  bottom: -0.02em;
+  width: 100%;
+  height: 0.08em;
+  background-color: #245792;
+}
+
+/* ------ >Base style ------ */
+
+.c-home-hero {
+  --home-hero-height: calc(var(--vh, 1svh) * 100);
+  height: var(--home-hero-height);
+  @media (min-width: 992px) {
+    --home-hero-height: calc(min(var(--vh, 1svh) * 100, 80vw));
+  }
+}

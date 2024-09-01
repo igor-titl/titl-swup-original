@@ -1,0 +1,94 @@
+body.is-modal-active #agency{ 
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    --duration-in: 650;
+}
+
+
+body.is-modal-active #agency.is-changing{
+   
+    transition-duration: calc(var(--duration-in) * 1ms);
+}
+
+
+body.is-modal-active #agency.is-changing .c-scroll-wrapper {
+  transition-duration: calc(var(--duration-in) * 1ms);
+}
+
+body.is-modal-active #agency.is-animating .c-scroll-wrapper {
+  transition-timing-function: cubic-bezier(0.15, 0.49, 0.19, 1);
+  transform: translateY(100%);
+}
+
+body.is-modal-active #agency .o-scroll{
+    padding-top: 8.75rem;
+}
+
+.c-modal_before{
+    background-color: rgba(0, 0, 0, 0.6);
+    transition-timing-function: cubic-bezier(0.15, 0.49, 0.19, 1);
+
+    body.is-modal-active #agency.is-animating &{
+        opacity: 0;
+    }
+
+    body.is-modal-active #agency.is-changing & {
+        transition-duration: calc(var(--duration-in) * 1ms);
+    }
+}
+
+
+
+
+// Highlights
+
+
+body.is-modal-active #highlights{ 
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    --duration-in: 650;
+}
+
+
+body.is-modal-active #highlights.is-changing{
+   
+    transition-duration: calc(var(--duration-in) * 1ms);
+}
+
+
+body.is-modal-active #highlights.is-changing .c-scroll-wrapper {
+  transition-duration: calc(var(--duration-in) * 1ms);
+}
+
+body.is-modal-active #highlights.is-animating .c-scroll-wrapper {
+  transition-timing-function: cubic-bezier(0.15, 0.49, 0.19, 1);
+  transform: translateY(100%);
+}
+
+body.is-modal-active #highlights .o-scroll{
+ padding-top: 8.75rem;
+}
+
+.c-modal_before{
+
+    html:not([data-page="home"]) & {
+        display: none;
+    }
+
+    background-color: rgba(0, 0, 0, 0.6);
+    transition-timing-function: cubic-bezier(0.15, 0.49, 0.19, 1);
+
+    body.is-modal-active #highlights.is-animating &{
+        opacity: 0;
+    }
+
+    body.is-modal-active #highlights.is-changing & {
+        transition-duration: calc(var(--duration-in) * 1ms);
+    }
+}

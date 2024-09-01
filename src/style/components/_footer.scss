@@ -1,0 +1,21 @@
+.c-footer .char {
+  position: relative;
+}
+
+.c-footer {
+  &__inner {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #c8ced7;
+      left: 0;
+      right: 0;
+      top: 0;
+      transform-origin: left center;
+      transition: transform 800ms ease;
+    }
+  }
+}
